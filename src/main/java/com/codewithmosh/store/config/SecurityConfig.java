@@ -55,7 +55,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(c -> c
                         .requestMatchers("/swagger-ui/**").permitAll()
                         .requestMatchers("/swagger-ui.html/**").permitAll()
-                        .requestMatchers("/V3/api-docs/**").permitAll()
+                        .requestMatchers("/v3/api-docs/**").permitAll()
                         .requestMatchers("/carts/**").permitAll()
                         .requestMatchers("/admin/**").hasRole(Roles.ADMIN.name())
                         .requestMatchers(HttpMethod.POST,"/users").permitAll()
