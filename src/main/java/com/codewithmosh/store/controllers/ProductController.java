@@ -20,6 +20,7 @@ public class ProductController {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
     private final CategoryRepository categoryRepository;
+    @GetMapping
     public List<ProductDto> getAllProducts(
             @RequestParam(required = false,name="categoryId") Byte categoryId) {
         List<Product> products ;
@@ -31,6 +32,7 @@ public class ProductController {
         }
         return products.stream().map( productMapper::toDto).toList();
     }
+    @GetMapping("/id")
     public ResponseEntity<ProductDto> getProductsById(@RequestParam(required = false, name = "id") Long Id) {
     var product = productRepository.findById(Id).orElseThrow(null);
     if (product == null) {
